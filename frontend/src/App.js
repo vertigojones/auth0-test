@@ -8,8 +8,6 @@ import Callback from "./Callback";
 import NewQuestion from "./NewQuestion/NewQuestion";
 import SecuredRoute from "./SecuredRoute/SecuredRoute";
 
-// commented code
-
 class App extends Component {
   constructor(props) {
     super(props);
