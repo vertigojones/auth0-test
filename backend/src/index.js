@@ -35,7 +35,6 @@ app.use(cors());
 app.use(morgan("combined"));
 
 // retrieve all questions
-app.use(bodyParser.json());
 app.get("/", (req, res) => {
   const qs = questions.map(q => ({
     id: q.id,
