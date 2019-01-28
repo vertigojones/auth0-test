@@ -25,7 +25,8 @@ connection.on("error", err => {
 // enhance your app security with Helmet
 app.use(helmet());
 
-// use bodyParser to parse application/json content-type
+// use middleware
+app.use(express.static(`${__dirname}/../frontend/build`));
 app.use(bodyParser.json());
 
 // enable all CORS requests

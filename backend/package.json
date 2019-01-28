@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "^11.8.0"
+  },
   "scripts": {
     "start": "node backend/src/index.js",
     "dev": "concurrently \"nodemon src/index.js\" \"cd ../frontend && npm start \" ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd ../frontend && npm i && npm run build"
   },
   "keywords": [],
   "author": "",
