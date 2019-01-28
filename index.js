@@ -99,6 +99,7 @@ app.post("/answer/:id", checkJwt, (req, res) => {
 });
 
 // start the server
-app.listen(8081, () => {
-  console.log("listening on port 8081");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log("Magic be happening on port " + PORT);
 });
