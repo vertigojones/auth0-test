@@ -1,6 +1,7 @@
-//import dependencies
+// import dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
@@ -12,8 +13,14 @@ const jwksRsa = require("jwks-rsa");
 // define the Express app
 const app = express();
 
-// the database
-const questions = [];
+// connect to mongoose
+const connection = mongoose.connection;
+connection.on("connected", () => {
+  console.log("Mongoose connected successfully!");
+});
+connection.on("error", err => {
+  console.log("Mongoose default connection error: " + err);
+});
 
 // enhance your app security with Helmet
 app.use(helmet());
@@ -28,6 +35,7 @@ app.use(cors());
 app.use(morgan("combined"));
 
 // retrieve all questions
+app.use(bodyParser.json());
 app.get("/", (req, res) => {
   const qs = questions.map(q => ({
     id: q.id,

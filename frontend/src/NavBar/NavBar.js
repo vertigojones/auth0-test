@@ -11,7 +11,7 @@ function NavBar(props) {
   return (
     <nav className="navbar navbar-dark bg-primary fixed-top">
       <Link className="navbar-brand" to="/">
-        Q&App
+        Tripwire Q&A
       </Link>
       {!auth0Client.isAuthenticated() && (
         <button className="btn btn-dark" onClick={auth0Client.signIn}>
